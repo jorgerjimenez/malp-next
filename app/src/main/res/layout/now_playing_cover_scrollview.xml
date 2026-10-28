@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (C) 2023 Team Gateship-One
+  ~  (Hendrik Borghorst & Frederik Luetkes)
+  ~  Modified 2026 by jorgerjimenez for MALP Next (https://github.com/jorgerjimenez/malp-next)
+  ~
+  ~  The AUTHORS.md file contains a detailed contributors list:
+  ~  <https://gitlab.com/gateship-one/malp/blob/master/AUTHORS.md>
+  ~
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~
+  -->
+<!-- Cover page of the now playing view: large cover, audio format, title / artist / album and,
+     further down, the song details. The cover size is set in NowPlayingView#onMeasure. -->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/now_playing_view_cover_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/npv_cover_margin">
+
+        <org.gateshipone.malp.application.views.AlbumArtistView
+            android:id="@+id/now_playing_cover"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/cover_placeholder" />
+
+        <TextView
+            android:id="@+id/now_playing_format"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/npv_cover_margin"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingStart="@dimen/material_screen_edge_spacing"
+            android:paddingEnd="@dimen/material_screen_edge_spacing"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textColor="?attr/colorPrimary" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
+
+            <!-- Keeps the title centred against the button on the other side -->
+            <Space
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+
+            <TextView
+                android:id="@+id/now_playing_title_large"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:gravity="center"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+                android:textColor="?attr/app_color_on_surface" />
+
+            <ImageButton
+                android:id="@+id/now_playing_add_to_playlist_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/actionBarItemBackground"
+                android:contentDescription="@string/action_add_to_saved_playlist"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_playlist_add_24dp"
+                app:tint="?attr/app_color_on_surface" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/now_playing_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingStart="@dimen/material_screen_edge_spacing"
+            android:paddingEnd="@dimen/material_screen_edge_spacing"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textColor="?attr/app_color_on_surface" />
+
+        <TextView
+            android:id="@+id/now_playing_album"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingStart="@dimen/material_screen_edge_spacing"
+            android:paddingEnd="@dimen/material_screen_edge_spacing"
+            android:alpha="0.8"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textColor="?attr/app_color_on_surface" />
+
+        <!-- Song details (scroll down to see) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/npv_details_top_margin"
+            android:alpha="0.8"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/material_screen_edge_spacing"
+            android:paddingEnd="@dimen/material_screen_edge_spacing"
+            android:paddingBottom="@dimen/material_content_spacing">
+            <TextView
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/material_content_spacing"
+                    android:text="@string/song_track_no"
+                    android:textColor="?attr/app_color_on_surface"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelSmall"  />
+
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/now_playing_text_track_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/app_color_on_surface"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"  />
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/material_content_spacing"
+                    android:text="@string/song_playlist_no"
+                    android:textColor="?attr/app_color_on_surface"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelSmall" />
+
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/now_playing_text_playlist_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/app_color_on_surface"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"  />
+
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/material_content_spacing"
+                    android:text="@string/song_audio_properties"
+                    android:textColor="?attr/app_color_on_surface"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelSmall" />
+
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/now_playing_text_audio_properties"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/app_color_on_surface"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (C) 2023 Team Gateship-One
+  ~  (Hendrik Borghorst & Frederik Luetkes)
+  ~  Modified 2026 by jorgerjimenez for MALP Next (https://github.com/jorgerjimenez/malp-next)
+  ~
+  ~  The AUTHORS.md file contains a detailed contributors list:
+  ~  <https://gitlab.com/gateship-one/malp/blob/master/AUTHORS.md>
+  ~
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~
+  -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/now_playing_buttonLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/material_content_spacing"
+    android:paddingTop="@dimen/material_content_spacing"
+    android:paddingEnd="@dimen/material_content_spacing"
+    android:paddingBottom="@dimen/npv_controls_bottom_padding">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/now_playing_bottomRandomButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:background="?attr/actionBarItemBackground"
+            android:contentDescription="@string/action_npv_random"
+            android:scaleType="center"
+            android:src="@drawable/ic_shuffle_24dp"
+            app:tint="?attr/app_color_on_surface" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/now_playing_bottomPreviousButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:background="@drawable/npv_circle_button_bg"
+            android:contentDescription="@string/action_npv_previous"
+            android:padding="14dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_skip_previous_48dp"
+            app:tint="?attr/app_color_on_surface" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/now_playing_bottomPlayPauseButton"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:background="@drawable/npv_circle_button_bg"
+            android:contentDescription="@string/action_npv_play_pause"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_play_arrow_48dp"
+            app:tint="?attr/app_color_on_surface" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/now_playing_bottomNextButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:background="@drawable/npv_circle_button_bg"
+            android:contentDescription="@string/action_npv_next"
+            android:padding="14dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_skip_next_48dp"
+            app:tint="?attr/app_color_on_surface" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/now_playing_bottomRepeatButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:background="?attr/actionBarItemBackground"
+            android:contentDescription="@string/action_npv_repeat"
+            android:scaleType="center"
+            android:src="@drawable/ic_repeat_24dp"
+            app:tint="?attr/app_color_on_surface" />
+    </FrameLayout>
+</LinearLayout>

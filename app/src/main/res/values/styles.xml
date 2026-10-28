@@ -1,0 +1,190 @@
+<!--
+  ~  Copyright (C) 2023 Team Gateship-One
+  ~  (Hendrik Borghorst & Frederik Luetkes)
+  ~  Modified 2026 by jorgerjimenez for MALP Next (https://github.com/jorgerjimenez/malp-next)
+  ~
+  ~  The AUTHORS.md file contains a detailed contributors list:
+  ~  <https://gitlab.com/gateship-one/malp/blob/master/AUTHORS.md>
+  ~
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Color themes -->
+    <style name="AppTheme.materialyou.dark" parent="Theme.Material3.DynamicColors.Dark">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="malp_grid_gradient">@drawable/gradient_gridview_item_dark</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="app_color_surface">?attr/colorSurface</item>
+        <item name="app_color_on_surface">?attr/colorOnSurface</item>
+        <item name="app_color_on_surface_highlight">?attr/app_color_secondary</item>
+        <item name="app_color_surface_darker">@color/material_dynamic_primary30</item>
+        <item name="app_color_content">?attr/colorSurfaceContainer</item>
+        <item name="app_color_on_content">?attr/colorOnSurface</item>
+        <item name="app_color_secondary">?attr/colorSecondary</item>
+        <item name="app_color_on_secondary">?attr/colorOnSecondary</item>
+        <item name="app_color_cover_background">@android:color/black</item>
+        <item name="app_color_fanart_activity_tint">#ffffff</item>
+        <item name="app_toolbar_style">@style/AppTheme.You.Dark.DynamicColors.Toolbar</item>
+        <item name="switchPreferenceCompatStyle">@style/MaterialSwitchPreferenceCompat</item>
+        <item name="app_text_list_title">@style/TextAppearance.Material3.TitleMedium</item>
+        <item name="app_text_list_subtitle">@style/TextAppearance.Material3.BodyMedium</item>
+    </style>
+
+    <style name="AppTheme.You.Dark.DynamicColors.Toolbar" parent="AppTheme.materialyou.dark"></style>
+
+    <style name="AppTheme.You.Dark.Toolbar" parent="ThemeOverlay.Material3.Toolbar.Surface">
+        <item name="toolbarStyle">@style/Widget.Material3.Toolbar.OnSurface</item>
+    </style>
+
+    <style name="AppTheme.materialyou.light" parent="Theme.Material3.DynamicColors.Light">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="malp_grid_gradient">@drawable/gradient_gridview_item_dark</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="app_color_surface">?attr/colorSurface</item>
+        <item name="app_color_on_surface">?attr/colorOnSurface</item>
+        <item name="app_color_on_surface_highlight">?attr/app_color_secondary</item>
+        <item name="app_color_surface_darker">@color/material_dynamic_primary30</item>
+        <item name="app_color_content">?attr/colorSurfaceContainer</item>
+        <item name="app_color_on_content">?attr/colorOnSurface</item>
+        <item name="app_color_secondary">?attr/colorSecondary</item>
+        <item name="app_color_on_secondary">?attr/colorOnSecondary</item>
+        <item name="app_color_cover_background">@android:color/black</item>
+        <item name="app_color_fanart_activity_tint">#ffffff</item>
+        <item name="app_toolbar_style">@style/AppTheme.You.Light.DynamicColors.Toolbar</item>
+        <item name="switchPreferenceCompatStyle">@style/MaterialSwitchPreferenceCompat</item>
+        <item name="app_text_list_title">@style/TextAppearance.Material3.TitleMedium</item>
+        <item name="app_text_list_subtitle">@style/TextAppearance.Material3.BodyMedium</item>
+    </style>
+
+    <style name="AppTheme.You.Light.Toolbar" parent="ThemeOverlay.Material3.Toolbar.Surface">
+        <item name="toolbarStyle">@style/Widget.Material3.Toolbar.OnSurface</item>
+    </style>
+
+    <style name="AppTheme.You.Light.DynamicColors.Toolbar" parent="AppTheme.materialyou.light"></style>
+
+    <style name="AppTheme.materialyou" parent="Theme.Material3.DynamicColors.DayNight">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="malp_grid_gradient">@drawable/gradient_gridview_item_dark</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">?attr/isLightTheme</item>
+        <item name="app_color_surface">?attr/colorSurface</item>
+        <item name="app_color_on_surface">?attr/colorOnSurface</item>
+        <item name="app_color_on_surface_highlight">?attr/app_color_secondary</item>
+        <item name="app_color_surface_darker">@color/material_dynamic_primary30</item>
+        <item name="app_color_content">?attr/colorSurfaceContainer</item>
+        <item name="app_color_on_content">?attr/colorOnSurface</item>
+        <item name="app_color_secondary">?attr/colorSecondary</item>
+        <item name="app_color_on_secondary">?attr/colorOnSecondary</item>
+        <item name="app_color_cover_background">@android:color/black</item>
+        <item name="app_color_fanart_activity_tint">#ffffff</item>
+        <item name="app_toolbar_style">@style/AppTheme.You.DynamicColors.Toolbar</item>
+        <item name="switchPreferenceCompatStyle">@style/MaterialSwitchPreferenceCompat</item>
+        <item name="app_text_list_title">@style/TextAppearance.Material3.TitleMedium</item>
+        <item name="app_text_list_subtitle">@style/TextAppearance.Material3.BodyMedium</item>
+    </style>
+
+    <!-- Reference: https://github.com/material-components/material-components-android/issues/2828 -->
+    <style name="MaterialSwitchPreferenceCompat" parent="@style/Preference.SwitchPreferenceCompat.Material">
+        <item name="widgetLayout">@layout/view_preference_switch</item>
+    </style>
+
+    <style name="AppTheme.You.DynamicColors.Toolbar" parent="AppTheme.materialyou"></style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style name="AppTheme.oledDark" parent="AppTheme">
+        <item name="app_color_surface">@color/app_color_surface_oledDark</item>
+        <item name="app_color_surface_darker">@color/app_color_surface_darker_oledDark</item>
+        <item name="app_color_on_surface">@color/app_color_on_surface_oledDark</item>
+        <item name="app_color_secondary">@color/app_color_secondary_oledDark</item>
+        <item name="app_color_on_secondary">@color/app_color_on_secondary_oledDark</item>
+        <item name="app_color_content">@color/app_color_background_content_oledDark</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.Material3.Dark">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <!-- malp color values -->
+        <item name="colorPrimaryDark">?attr/app_color_surface_darker</item>
+        <item name="colorPrimary">?attr/app_color_surface</item>
+        <item name="colorOnPrimary">?attr/app_color_on_surface</item>
+        <item name="colorSurface">?attr/app_color_surface</item>
+        <item name="colorSurfaceContainer">?attr/app_color_content</item>
+        <item name="colorSecondary">?attr/app_color_secondary</item>
+        <item name="colorOnSecondary">?attr/app_color_secondary</item>
+        <item name="app_color_cover_background">#111111</item>
+        <item name="malp_grid_gradient">@drawable/gradient_gridview_item_dark</item>
+        <item name="app_color_on_surface_highlight">?attr/app_color_secondary</item>
+        <item name="app_color_on_content">#ffffff</item>
+        <item name="app_color_fanart_activity_tint">#ffffff</item>
+        <item name="app_toolbar_style">@style/AppTheme.Toolbar</item>
+        <item name="switchPreferenceCompatStyle">@style/MaterialSwitchPreferenceCompat</item>
+        <item name="app_text_list_title">@style/TextAppearance.Material3.TitleMedium</item>
+        <item name="app_text_list_subtitle">@style/TextAppearance.Material3.BodyMedium</item>
+    </style>
+
+
+    <style name="AppTheme.Light.MaterialAlertDialogTitle.Text" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textColor">?attr/app_color_on_content</item>
+    </style>
+
+    <style name="AppTheme.Light.AlertDialogStyle" parent="MaterialAlertDialog.Material3">
+        <item name="backgroundTint">?attr/app_color_content</item>
+        <item name="android:textColor">?attr/app_color_on_content</item>
+    </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/colorIconBackground</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/icon_inner</item>
+    </style>
+
+    <style name="AppTheme.Toolbar" parent="AppTheme"></style>
+
+
+
+
+
+
+
+
+
+
+
+
+    <style name="Theme.app.widget" parent="Theme.Material3.DynamicColors.Dark" />
+</resources>

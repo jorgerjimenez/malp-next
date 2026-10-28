@@ -1,0 +1,122 @@
+/*
+ *  Copyright (C) 2020 Team Gateship-One
+ *  (Hendrik Borghorst & Frederik Luetkes)
+ *  Modified 2026 by jorgerjimenez for MALP Next (https://github.com/jorgerjimenez/malp-next)
+ *
+ *  The AUTHORS.md file contains a detailed contributors list:
+ *  <https://gitlab.com/gateship-one/malp/blob/master/AUTHORS.md>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+apply plugin: 'com.android.application'
+
+// Resolve the short git hash once at configuration time. Uses the provider API
+// (Project.exec is deprecated and removed in Gradle 9). Falls back to "unknown"
+// when git is missing or the folder is not a git checkout.
+def gitCommitHash = "unknown"
+try {
+    def hash = providers.exec {
+        commandLine 'git', 'rev-parse', '--short', 'HEAD'
+        ignoreExitValue = true
+    }.standardOutput.asText.get().trim()
+    if (!hash.isEmpty()) {
+        gitCommitHash = hash
+    }
+} catch (Exception ignored) {
+}
+
+android {
+    File keystorePropertiesFile = rootProject.file("keystore.properties")
+
+
+    signingConfigs {
+        config {
+            if (keystorePropertiesFile.exists()) {
+                // load keystore file
+                Properties keystoreProperties = new Properties()
+                keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+            }
+        }
+    }
+    compileSdk 36
+    defaultConfig {
+        applicationId "com.jorge.malp"
+        minSdkVersion 21
+        targetSdkVersion 36
+        versionCode 43
+        versionName "1.4.0"
+        signingConfig signingConfigs.config
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            if (keystorePropertiesFile.exists()) {
+                signingConfig signingConfigs.config
+            }
+
+            buildConfigField("String", "GIT_COMMIT_HASH", "\"${gitCommitHash}\"")
+        }
+        debug {
+            if (keystorePropertiesFile.exists()) {
+                signingConfig signingConfigs.config
+            }
+
+            buildConfigField("String", "GIT_COMMIT_HASH", "\"${gitCommitHash}\"")
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    lint {
+        abortOnError false
+    }
+    buildFeatures {
+        aidl true
+        buildConfig true
+    }
+    namespace 'org.gateshipone.malp'
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'androidx.appcompat:appcompat-resources:1.7.1'
+    implementation 'androidx.activity:activity:1.10.1'
+    implementation 'androidx.preference:preference:1.2.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.9.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.9.1'
+    implementation 'androidx.lifecycle:lifecycle-common:2.9.1'
+
+    implementation 'androidx.core:core:1.16.0'
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+
+    implementation 'androidx.media:media:1.7.0'
+    implementation 'androidx.palette:palette:1.0.0'
+
+    implementation 'com.google.android.material:material:1.13.0'
+
+    implementation 'com.android.volley:volley:1.2.1'
+
+    implementation 'info.debatty:java-string-similarity:2.0.0'
+}

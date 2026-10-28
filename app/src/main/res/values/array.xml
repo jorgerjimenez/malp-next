@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (C) 2023 Team Gateship-One
+  ~  (Hendrik Borghorst & Frederik Luetkes)
+  ~  Modified 2026 by jorgerjimenez for MALP Next (https://github.com/jorgerjimenez/malp-next)
+  ~
+  ~  The AUTHORS.md file contains a detailed contributors list:
+  ~  <https://gitlab.com/gateship-one/malp/blob/master/AUTHORS.md>
+  ~
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<resources>
+    <string-array name="contributors" translatable="false">
+        <item>Hendrik Borghorst</item>
+        <item>Frederik Lütkes</item>
+        <item>naofum</item>
+        <item>Guy de Mölkky</item>
+        <item>Víctor García</item>
+        <item>Minho Park (한국어 번역)</item>
+        <item>Dániel Flórián</item>
+        <item>Sebastian Rasmussen</item>
+    </string-array>
+
+    <string-array name="contributors_type">
+        <item>@string/contributor_team</item>
+        <item>@string/contributor_team</item>
+        <item>@string/contributor_translator_japanese</item>
+        <item>@string/contributor_translator_french</item>
+        <item>@string/contributor_translator_spanish</item>
+        <item>@string/contributor_translator_korean</item>
+        <item>@string/contributor_translator_hungarian</item>
+        <item>@string/contributor_translator_swedish</item>
+    </string-array>
+
+
+
+    <string-array name="preference_album_sort_orders">
+        <item>@string/preference_album_sort_order_name</item>
+        <item>@string/preference_album_sort_order_year</item>
+    </string-array>
+
+    <string-array name="preference_default_views">
+        <item>@string/menu_artists</item>
+        <item>@string/menu_albums</item>
+        <item>@string/menu_playlists</item>
+        <item>@string/menu_files</item>
+        <item>@string/menu_search</item>
+    </string-array>
+
+    <string-array name="preference_library_view">
+        <item>@string/preference_library_view_list</item>
+        <item>@string/preference_library_view_grid</item>
+    </string-array>
+
+
+    <string-array name="preference_volume_control">
+        <item>@string/preference_volume_control_off</item>
+        <item>@string/preference_volume_control_seekbar</item>
+        <item>@string/preference_volume_control_buttons</item>
+    </string-array>
+
+    <string-array name="preference_artwork_album_provider_entries">
+        <item>@string/provider_off</item>
+        <item>@string/musicbrainz</item>
+        <item>@string/last_fm</item>
+    </string-array>
+
+    <string-array name="preference_artwork_artist_provider_entries">
+        <item>@string/provider_off</item>
+        <item>@string/fanart_tv</item>
+    </string-array>
+
+    <string-array name="server_search_choices">
+        <item>@string/search_choice_track</item>
+        <item>@string/search_choice_album</item>
+        <item>@string/search_choice_artist</item>
+        <item>@string/search_choice_file</item>
+        <item>@string/search_choice_everything</item>
+    </string-array>
+    <string-array name="preference_app_theme_entries">
+        <item>@string/preference_app_theme_system</item>
+        <item>@string/preference_app_theme_light</item>
+        <item>@string/preference_app_theme_dark</item>
+        <item>@string/preference_app_theme_oled</item>
+    </string-array>
+</resources>

@@ -1,0 +1,1 @@
+* Make image loading more robust ([Issue #294](https://gitlab.com/gateship-one/malp/-/issues/294))
